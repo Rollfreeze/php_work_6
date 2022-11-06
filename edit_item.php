@@ -15,8 +15,8 @@
         require_once 'php/header/header.php';
         require_once 'php/card/card.php';
 
-        $form_filled = isset($_POST['form_name']) && isset($_POST['form_date']) && isset($_POST['form_message']) && isset($_POST['form_station']) && isset($_POST['form_score']);
-        $form_not_empty = !empty($_POST['form_name']) && !empty($_POST['form_date']) && !empty($_POST['form_message']) && !empty($_POST['form_station']) && !empty($_POST['form_score']);
+        $form_filled = isset($_POST['form_id'], $_POST['form_name']) && isset($_POST['form_date']) && isset($_POST['form_message']) && isset($_POST['form_station']) && isset($_POST['form_score']);
+        $form_not_empty = !empty($_POST['form_id']) && !empty($_POST['form_name']) && !empty($_POST['form_date']) && !empty($_POST['form_message']) && !empty($_POST['form_station']) && !empty($_POST['form_score']);
         $res;
 
         if (count($_POST) != 0) {

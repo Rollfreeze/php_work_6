@@ -12,11 +12,6 @@
                 require_once 'php/states/view_state.php';
                 break;
             }
-
-            case 'edit': {
-                break;
-            }
-
             default: {
                 require_once 'php/states/uncknown_type.php';
                 break;
