@@ -4,14 +4,34 @@ require_once 'php/card/message.php';
 require_once 'php/card/user.php';
 
 
-function card($date, $score, $station, $message, $name) {
+function card($id, $date, $score, $station, $message, $name) {
     echo <<<CARD_OPEN
-        '<div class="card-body">'
+        <div class="card-body">
 
-        <button class="delete_button"><i class="fa fa-close"></i></button>
-        <button class="edit_button"><i class="fa fa-folder"></i></button>
+        <form name="delete_form" method="post">
+            <button class="delete_button"><i class="fa fa-close"></i></button>
+            <div class="secret-box">
+                <input type="hidden" name="card_id_field" id="card_id" value="$id">
+                <input type="hidden" name="card_date_field" id="card_date" value="$date">
+                <input type="hidden" name="card_score_field" id="card_score" value="$score">
+                <input type="hidden" name="card_station_field" id="card_station" value="$station">
+                <input type="hidden" name="card_message_field" id="card_message" value="$message">
+                <input type="hidden" name="card_name_field" id="card_name" value="$name">
+            </div>
+        </form>
+
+        <form name="edit_form" method="post">
+            <button class="edit_button"><i class="fa fa-folder"></i></button>
+            <div class="secret-box">
+                <input type="hidden" name="card_id_field" id="card_id" value="$id">
+                <input type="hidden" name="card_date_field" id="card_date" value="$date">
+                <input type="hidden" name="card_score_field" id="card_score" value="$score">
+                <input type="hidden" name="card_station_field" id="card_station" value="$station">
+                <input type="hidden" name="card_message_field" id="card_message" value="$message">
+                <input type="hidden" name="card_name_field" id="card_name" value="$name">
+            </div>
+        </form>
 CARD_OPEN;
-
 
 
         calendar_score_station_container($date, $score, $station);
@@ -19,7 +39,7 @@ CARD_OPEN;
         user_item($name);
 
     echo <<<CARD_CLOSE
-        '</div>'
+        </div>
 CARD_CLOSE;
 }
 ?>

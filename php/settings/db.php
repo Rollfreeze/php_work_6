@@ -32,15 +32,16 @@
         $mysql->close();
     }
 
-
+    /// Удалить
     function db_delete($id) {
         $mysql = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         if ($mysql->connect_errno) exit(ERROR_MESSAGE);
         $mysql->set_charset(CHARSET);
 
-        
-
+        $sql_request = 'DELETE FROM `feed_back` WHERE `id` = ' . $id;
+        mysqli_query($mysql, $sql_request);
         $mysql->close();
+        return true;
     }
 
     function db_update($id) {
