@@ -144,6 +144,21 @@
     background-color: rgb(231, 177, 14);
 }
 
+.sort-button {
+    color: #212529;
+    background-color: rgb(158, 152, 134);
+
+    border: none;
+
+    font-size: 14px;
+    font-weight: 200;
+    text-align: center;
+    
+    padding: 12px 20px;
+
+    border-radius: 6px; 
+}
+
 .left_feed {
     display: inline-block;
     padding-left: 8px;
