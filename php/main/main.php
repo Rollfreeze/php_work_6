@@ -24,17 +24,5 @@
         }
     }
 
-//     echo <<<ADD_ITEM
-//         <div class="form-container">
-//             <h2 class="h2 p20-top-bot text-center">Ваш отзыв или пожелание</h2>
-
-//             <form name="delete_form" method="post">
-//                 <p>Ваше имя: <input type="text" name="name" /></p>
-//                 <p>Ваш возраст: <input type="text" name="age" /></p>
-//                 <p><input type="submit" /></p>
-//             </form>
-//         </div>
-// ADD_ITEM;
-
     require_once 'php/main/main_close.php';
 ?>
