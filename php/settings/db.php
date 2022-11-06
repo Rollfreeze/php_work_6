@@ -57,19 +57,26 @@
         return false;
     }
 
-    function db_get_sorted_by_date($isNewFirst) {
+    function db_sort_date_desc() {
         $mysql = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         if ($mysql->connect_errno) exit(ERROR_MESSAGE);
         $mysql->set_charset(CHARSET);
-
-        
-        if ($isNewFirst) {
-
-        } else {
-
-        }
-
+        $sql_request = 'SELECT * FROM `feed_back` ORDER BY `feed_back_date` DESC';
+        $result = mysqli_query($mysql, $sql_request);
         $mysql->close();
+
+        return $result;
+    }
+
+    function db_sort_date_asc() {
+        $mysql = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+        if ($mysql->connect_errno) exit(ERROR_MESSAGE);
+        $mysql->set_charset(CHARSET);
+        $sql_request = 'SELECT * FROM `feed_back` ORDER BY `feed_back_date` ASC';
+        $result = mysqli_query($mysql, $sql_request);
+        $mysql->close();
+
+        return $result;
     }
 
     function db_sort_score_desc() {

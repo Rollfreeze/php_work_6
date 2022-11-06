@@ -21,6 +21,14 @@ VIEW_STATE;
             $db_result = db_sort_score_desc();
             break;
         };
+        case "date_desc": {
+            $db_result = db_sort_date_desc();
+            break;
+        };
+        case "date_asc": {
+            $db_result = db_sort_date_asc();
+            break;
+        };
         default: {
             $db_result = db_get_all();
             break;
@@ -34,8 +42,10 @@ VIEW_STATE;
     if (mysqli_num_rows($db_result) == 0) {
         require_once 'php/card/empty.php';
     } else {
-        require_once 'php/sort_buttons/sort_by_score_downgrade.php';
-        require_once 'php/sort_buttons/sort_by_score_increase.php';
+        require_once 'php/sort_buttons/sort_by_score_desc.php';
+        require_once 'php/sort_buttons/sort_by_score_asc.php';
+        require_once 'php/sort_buttons/sort_by_date_desc.php';
+        require_once 'php/sort_buttons/sort_by_date_asc.php';
 
         $rows = mysqli_fetch_all($db_result, MYSQLI_ASSOC);
         foreach ($rows as $row) card($row['id'], $row['feed_back_date'], $row['evaluation'], $row['service_station'], $row['message'], $row['user_name']);
