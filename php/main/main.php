@@ -1,7 +1,8 @@
 <?php
-    require_once 'php/main/card/card.php';
+    require_once 'php/card/card.php';
 
-    require 'php/main/main_open.php';
+
+    require_once 'php/main/main_open.php';
 
     // require_once 'php/main/feed_back/empty.php';
 
@@ -12,6 +13,10 @@
     $name = 'Van Sama';
 
     card($date, $score, $station, $message, $name);
+    // card($date, $score, $station, $message, $name);
+    // card($date, $score, $station, $message, $name);
 
-    require 'php/main/main_close.php';
+
+
+    require_once 'php/main/main_close.php';
 ?>

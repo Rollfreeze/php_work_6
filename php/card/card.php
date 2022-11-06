@@ -1,7 +1,7 @@
 <?php
-require_once 'php/main/card/calendar_score_station.php';
-require_once 'php/main/card/message.php';
-require_once 'php/main/card/user.php';
+require_once 'php/card/calendar_score_station.php';
+require_once 'php/card/message.php';
+require_once 'php/card/user.php';
 
 
 function card($date, $score, $station, $message, $name) {

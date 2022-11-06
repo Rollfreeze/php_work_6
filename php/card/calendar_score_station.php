@@ -1,6 +1,6 @@
 <?php
-require_once 'php/main/card/calendar_score.php';
-require_once 'php/main/card/station.php';
+require_once 'php/card/calendar_score.php';
+require_once 'php/card/station.php';
 
 
 function calendar_score_station_container($date, $score, $station) {

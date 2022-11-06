@@ -1,4 +1,6 @@
 <?php
+
+
 echo <<<MAIN_CLOSE
         </div>
     </main>
