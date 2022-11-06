@@ -18,6 +18,9 @@
 
         echo <<<ADD_ITEM
             <div class="form-container">
+
+                <p class="hleb"><a class="hleb-a" href="index.php">Отзывы</a> > Оставить отзыв </p>
+
                 <h2 class="h2 p20-top-bot text-center">Ваш отзыв или пожелание</h2>
 
                 <form name="delete_form" method="post">

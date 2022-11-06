@@ -18,7 +18,7 @@
     width: 350px;
 }
 
-.bottom-item, .no-elements-row, .tel-num, .h1, .h2, .description, .date, .station_address, .message, .uncknown_exception, .form-label, .form-input, .form-text-area {
+.bottom-item, .hleb, .hleb-a, .no-elements-row, .tel-num, .h1, .h2, .description, .date, .station_address, .message, .uncknown_exception, .form-label, .form-input, .form-text-area {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
@@ -309,4 +309,8 @@
     width: 100%;
     display: block;
     margin: 0 auto;
+}
+
+.hleb, .hleb-a {
+    font-size: 16px;
 }
