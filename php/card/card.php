@@ -22,7 +22,7 @@ function card($id, $date, $score, $station, $message, $name) {
             </div>
         </form>
 
-        <form name="edit_form" method="post">
+        <form name="edit_form" method="get" action="edit_item.php">
             <button class="edit_button"><i class="fa fa-folder"></i></button>
             <div class="secret-box">
                 <input type="hidden" name="card_id_field" id="card_id" value="$id">

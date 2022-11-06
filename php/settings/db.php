@@ -48,14 +48,18 @@
         return true;
     }
 
-    function db_update($id) {
+    function db_update($id, $date, $score, $station, $name, $message) {
         $mysql = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         if ($mysql->connect_errno) exit(ERROR_MESSAGE);
         $mysql->set_charset(CHARSET);
 
-        
+        $sql_request = "UPDATE `feed_back` SET `feed_back_date` = '$date', `evaluation` = '$score', `service_station` = '$station', `user_name` = '$name', `message` = '$message' WHERE `feed_back`.`id` = '$id';";
+
+        $res = mysqli_query($mysql, $sql_request);
 
         $mysql->close();
+        if ($res) return true;
+        return false;
     }
 
     function db_get_sorted_by_date($isNewFirst) {
