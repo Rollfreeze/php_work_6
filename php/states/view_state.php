@@ -11,7 +11,26 @@
         <p class="description">Ваши объективные отзывы о шиномонтаже Pit-Stop и пожелания помогут нам улучшить качество работы шиномонтажных станций, а другим автолюбителям правильно выбрать удобный, доступный и недорогой шиномонтаж в Санкт-Петербурге или в Москве. Если у Вас есть претензии к качеству выполненных работ, опишите ситуацию и укажите в отзыве свой номер телефона для оперативного решения проблемы. Обещаем, что каждый Ваш отзыв будет внимательно изучен и отработан на 100%.</p>
 VIEW_STATE;
 
-    $db_result = db_get_all();
+    $db_result;
+    switch ($_GET['form_sort_type']) {
+        case "score_increase": {
+            $db_result = db_sort_score_asc();
+            break;
+        }
+        case "score_downgrade": {
+            $db_result = db_sort_score_desc();
+            break;
+        };
+        default: {
+            $db_result = db_get_all();
+            break;
+        };
+    }
+
+
+    // $db_result = db_get_all();
+
+
     if (mysqli_num_rows($db_result) == 0) {
         require_once 'php/card/empty.php';
     } else {
