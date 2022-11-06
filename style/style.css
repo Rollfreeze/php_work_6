@@ -145,7 +145,7 @@
 }
 
 .sort-button {
-    color: #212529;
+    color: white;
     background-color: rgb(158, 152, 134);
 
     border: none;
@@ -157,6 +157,10 @@
     padding: 12px 20px;
 
     border-radius: 6px; 
+}
+
+.sort-button:hover {
+    background-color: rgb(110, 106, 93);
 }
 
 .left_feed {
