@@ -6,8 +6,7 @@
     if (isset($_POST['card_id_field'])) {
         $id = $_POST['card_id_field'];
         echo "id: $id";
-    } else {
-        echo "no_post";
+        db_delete($id);
     }
 
     $db_result = db_get_all();

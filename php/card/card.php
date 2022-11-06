@@ -17,6 +17,8 @@ function card($id, $date, $score, $station, $message, $name) {
                 <input type="hidden" name="card_station_field" id="card_station" value="$station">
                 <input type="hidden" name="card_message_field" id="card_message" value="$message">
                 <input type="hidden" name="card_name_field" id="card_name" value="$name">
+
+                <input type="hidden" name="card_type_field" id="card_type" value="delete">
             </div>
         </form>
 
@@ -29,6 +31,8 @@ function card($id, $date, $score, $station, $message, $name) {
                 <input type="hidden" name="card_station_field" id="card_station" value="$station">
                 <input type="hidden" name="card_message_field" id="card_message" value="$message">
                 <input type="hidden" name="card_name_field" id="card_name" value="$name">
+
+                <input type="hidden" name="card_type_field" id="card_type" value="edit">
             </div>
         </form>
 CARD_OPEN;
