@@ -14,10 +14,11 @@
         $mysql = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         if ($mysql->connect_errno) exit(ERROR_MESSAGE);
         $mysql->set_charset(CHARSET);
-
-        
-
+        $sql_request = 'SELECT * FROM `feed_back`';
+        $result = mysqli_query($mysql, $sql_request);
         $mysql->close();
+
+        return $result;
     }
 
     /// Добавить 
