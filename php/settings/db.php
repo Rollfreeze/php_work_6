@@ -29,14 +29,10 @@
 
         $sql_request = "INSERT INTO `feed_back` (`id`, `feed_back_date`, `evaluation`, `service_station`, `user_name`, `message`) VALUES (NULL, '$date', '$score', '$station', '$name', '$message');";
 
-        mysqli_query($mysql, $sql_request);
-
-        if ($mysql->query($sql_request) == true) {
-            $mysql->close();
-            return true;
-        }
+        $res = mysqli_query($mysql, $sql_request);
 
         $mysql->close();
+        if ($res) return true;
         return false;
     }
 
