@@ -14,11 +14,24 @@
     margin-right: 16px;
 }
 
+.success-container, .error-container {
+    background-color: green;
+    text-align: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin: 0 auto;
+    font-size: 30px;
+}
+
+.error-container {
+    background-color:rgb(255, 90, 90);
+}
+
 .sized-box-350 {
     width: 350px;
 }
 
-.bottom-item, .hleb, .hleb-a, .no-elements-row, .tel-num, .h1, .h2, .description, .date, .station_address, .message, .uncknown_exception, .form-label, .form-input, .form-text-area {
+.bottom-item, .success-container, .hleb, .hleb-a, .no-elements-row, .tel-num, .h1, .h2, .description, .date, .station_address, .message, .uncknown_exception, .form-label, .form-input, .form-text-area {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
@@ -312,5 +325,6 @@
 }
 
 .hleb, .hleb-a {
+    margin-top: 10px;
     font-size: 16px;
 }

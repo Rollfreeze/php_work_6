@@ -14,55 +14,24 @@
         require_once 'php/settings/settings_connect.php';
         require_once 'php/header/header.php';
         require_once 'php/card/card.php';
+
+        $form_filled = isset($_POST['form_name']) && isset($_POST['form_date']) && isset($_POST['form_message']) && isset($_POST['form_station']) && isset($_POST['form_score']);
+
+        $form_not_empty = !empty($_POST['form_name']) && !empty($_POST['form_date']) && !empty($_POST['form_message']) && !empty($_POST['form_station']) && !empty($_POST['form_score']);
+
+        if (count($_POST) != 0) {
+            if ($form_filled && $form_not_empty) {
+                $res = db_insert($_POST['form_date'], $_POST['form_score'], $_POST['form_station'], $_POST['form_name'], $_POST['form_message']);
+
+                if ($res) require_once 'php/states/success_bar.php';
+                else require_once 'php/states/exception_bar.php';
+            } else {
+                require_once 'php/states/exception_bar.php';
+            }
+        }
+
         require_once 'php/main/main_open.php';
-
-        echo <<<ADD_ITEM
-            <div class="form-container">
-
-                <p class="hleb"><a class="hleb-a" href="index.php">Отзывы</a> > Оставить отзыв </p>
-
-                <h2 class="h2 p20-top-bot text-center">Ваш отзыв или пожелание</h2>
-
-                <form name="delete_form" method="post">
-                    <div class="form-block">
-                        <label class="form-label">Ваше имя:</label>
-                        <input class="form-input" type="text" name="form_name">
-                    </div>
-
-                    <div class="form-block">
-                        <label class="form-label">Дата обслуживания:</label>
-                        <input class="form-input" type="date" name="trip-start">
-                    </div>
-
-                    <div class="form-block">
-                        <label class="form-label">Отзыв:</label>
-                        <textarea class="form-text-area" type="text" name="form_message"></textarea>
-                    </div>
-
-
-                    <div class="form-block">
-                        <label class="form-label">Станция обслуживания:</label>
-                        <input class="form-input" type="text" name="form_station">
-                    </div>
-
-                    <div class="form-block">
-                        <label class="form-label">Оценка:</label>
-                        <select class="form-input" id="cars" name="cars">
-                            <option value="5">5 - отлично</option>
-                            <option value="4">4 - хорошо</option>
-                            <option value="3">3 - удовлетворительно</option>
-                            <option value="2">2 - плохо</option>
-                            <option value="1">1 - ужасно</option>
-                        </select>
-                    </div>
-                    
-                    <div class="button-center-container">
-                        <button class="make_feed_back_button button-center-container"><p class="left_feed">Подтвердить</p></button>
-                    </div>
-                </form>
-            </div>
-ADD_ITEM;
-
+        require_once 'php/form/add_form.php';
         require_once 'php/main/main_close.php';
 ?>
 </body>

@@ -22,14 +22,22 @@
     }
 
     /// Добавить 
-    function db_insert() {
+    function db_insert($date, $score, $station, $name, $message) {
         $mysql = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         if ($mysql->connect_errno) exit(ERROR_MESSAGE);
         $mysql->set_charset(CHARSET);
 
-        
+        $sql_request = "INSERT INTO `feed_back` (`id`, `feed_back_date`, `evaluation`, `service_station`, `user_name`, `message`) VALUES (NULL, '$date', '$score', '$station', '$name', '$message');";
+
+        mysqli_query($mysql, $sql_request);
+
+        if ($mysql->query($sql_request) == true) {
+            $mysql->close();
+            return true;
+        }
 
         $mysql->close();
+        return false;
     }
 
     /// Удалить
