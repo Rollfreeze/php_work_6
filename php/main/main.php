@@ -9,16 +9,7 @@
         require_once 'php/card/empty.php';
     } else {
         $rows = mysqli_fetch_all($db_result, MYSQLI_ASSOC);
-
-        foreach ($rows as $row) {
-            card(
-                $row['feed_back_date'],
-                $row['evaluation'],
-                $row['service_station'],
-                $row['message'],
-                $row['user_name']
-            );
-        }
+        foreach ($rows as $row) card($row['feed_back_date'], $row['evaluation'], $row['service_station'], $row['message'], $row['user_name']);
     }
 
     require_once 'php/main/main_close.php';

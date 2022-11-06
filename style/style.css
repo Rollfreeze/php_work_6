@@ -145,6 +145,36 @@
     padding-top: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
+
+    position: relative;
+}
+
+.delete_button, .edit_button {
+    position: absolute;
+    right: -10px;
+    top: -12px;
+    display:block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid rgb(255, 90, 90);
+    background-color: rgb(255, 90, 90);
+}
+
+.delete_button:hover {
+    border: 1px solid rgb(255, 0, 0);
+    background-color: rgb(255, 0, 0);
+}
+
+.edit_button {
+    right: 25px;
+    border: 1px solid #ffb159;
+    background-color: #ffb159;
+}
+
+.edit_button:hover {
+    border: 1px solid #ff8800;
+    background-color: #ff8800;
 }
 
 .calendar {
