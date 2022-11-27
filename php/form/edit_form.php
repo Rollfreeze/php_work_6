@@ -34,12 +34,10 @@
 
                     <div class="form-block">
                         <label class="form-label">Оценка:</label>
-                        <select class="form-input" name="form_score" value="$score">
-                            <option value="5">5 - отлично</option>
-                            <option value="4">4 - хорошо</option>
-                            <option value="3">3 - удовлетворительно</option>
-                            <option value="2">2 - плохо</option>
-                            <option value="1">1 - ужасно</option>
+                        <select class="form-input" name="form_score">
+ADD_ITEM;
+                            score_selected($score);
+        echo <<<ADD_ITEM
                         </select>
                     </div>
                     
@@ -50,4 +48,24 @@
             </div>
 ADD_ITEM;
     }
+
+    function scroe_name($score) {
+        switch($score) {
+            case 1: return 'ужасно';
+            case 2: return 'плохо';
+            case 3: return 'удовлетворительно';
+            case 4: return 'хорошо';
+            case 5: return 'отлично';
+            default: return 'unknown';
+        }
+    }
+
+    function score_selected($score) {
+        for ($i = 5; $i > 0; $i--) {
+            $score_item_name = scroe_name($i);
+            if ($score == $i) echo "<option selected='$score'>$score - $score_item_name</option>";
+            else echo "<option value='$i'>$i - $score_item_name</option>";
+        }
+    }
+
 ?>
