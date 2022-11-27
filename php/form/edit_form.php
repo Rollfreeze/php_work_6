@@ -1,16 +1,42 @@
 <?php
 
 
-    function edit_form($id, $name, $date, $message, $station, $score) {
+    function edit_form($id, $name, $date, $message, $station, $score, $form_sort_type) {
+        
+        switch ($_REQUEST['form_sort_type']) {
+            case "score_increase": {
+                $custom_href = "index.php?form_sort_type=score_increase";
+                break;
+            }
+            case "score_downgrade": {
+                $custom_href = "index.php?form_sort_type=score_downgrade";
+                break;
+            };
+            case "date_desc": {
+                $custom_href = "index.php?form_sort_type=date_desc";
+                break;
+            };
+            case "date_asc": {
+                $custom_href = "index.php?form_sort_type=date_asc";
+                break;
+            };
+            default: {
+                $custom_href = "index.php";
+                break;
+            };
+        }
+
+
         echo <<<ADD_ITEM
             <div class="form-container">
 
-                <p class="hleb"><a class="hleb-a" href="index.php">Отзывы</a> > Оставить отзыв </p>
+                <p class="hleb"><a class="hleb-a" href=$custom_href>Отзывы</a> > Оставить отзыв </p>
 
                 <h2 class="h2 p20-top-bot text-center">Ваш отзыв или пожелание</h2>
 
                 <form name="edit_form" method="post">
                     <input type="hidden" name="form_id" id="card_id" value="$id">
+                    <input type="hidden" name="form_sort_type" id="form_sort_type" value="$form_sort_type">
 
                     <div class="form-block">
                         <label class="form-label">Ваше имя:</label>

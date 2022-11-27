@@ -17,7 +17,7 @@
 
         $form_filled = isset($_POST['form_id'], $_POST['form_name']) && isset($_POST['form_date']) && isset($_POST['form_message']) && isset($_POST['form_station']) && isset($_POST['form_score']);
         $form_not_empty = !empty($_POST['form_id']) && !empty($_POST['form_name']) && !empty($_POST['form_date']) && !empty($_POST['form_message']) && !empty($_POST['form_station']) && !empty($_POST['form_score']);
-        $res;
+        $res = false;
 
         if (count($_POST) != 0) {
             if ($form_filled && $form_not_empty) {
@@ -33,9 +33,14 @@
         require_once 'php/main/main_open.php';
 
         require_once 'php/form/edit_form.php'; // она не верстает, а дает вызывать функцию ниже
+
+        $form_sort_type = "no_sort";
+        if (isset($_REQUEST['form_sort_type']) and !empty($_REQUEST['form_sort_type']) and $_REQUEST['form_sort_type'] != null) {
+            $form_sort_type = $_REQUEST['form_sort_type'];
+        }
         
-        if ($res) edit_form($_POST['form_id'], $_POST['form_name'], $_POST['form_date'], $_POST['form_message'], $_POST['form_station'], $_POST['form_score']);
-        else edit_form($_GET['card_id_field'], $_GET['card_name_field'], $_GET['card_date_field'], $_GET['card_message_field'], $_GET['card_station_field'], $_GET['card_score_field']);
+        if ($res) edit_form($_POST['form_id'], $_POST['form_name'], $_POST['form_date'], $_POST['form_message'], $_POST['form_station'], $_POST['form_score'], $form_sort_type);
+        else edit_form($_GET['card_id_field'], $_GET['card_name_field'], $_GET['card_date_field'], $_GET['card_message_field'], $_GET['card_station_field'], $_GET['card_score_field'], $form_sort_type);
 
         require_once 'php/main/main_close.php';
     ?>

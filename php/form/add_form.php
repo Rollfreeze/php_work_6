@@ -1,8 +1,32 @@
 <?php
+
+    switch ($_REQUEST['form_sort_type']) {
+        case "score_increase": {
+            $custom_href = "index.php?form_sort_type=score_increase";
+            break;
+        }
+        case "score_downgrade": {
+            $custom_href = "index.php?form_sort_type=score_downgrade";
+            break;
+        };
+        case "date_desc": {
+            $custom_href = "index.php?form_sort_type=date_desc";
+            break;
+        };
+        case "date_asc": {
+            $custom_href = "index.php?form_sort_type=date_asc";
+            break;
+        };
+        default: {
+            $custom_href = "index.php";
+            break;
+        };
+    }
+
     echo <<<ADD_ITEM
         <div class="form-container">
 
-            <p class="hleb"><a class="hleb-a" href="index.php">Отзывы</a> > Оставить отзыв </p>
+            <p class="hleb"><a class="hleb-a" href=$custom_href>Отзывы</a> > Оставить отзыв </p>
 
             <h2 class="h2 p20-top-bot text-center">Ваш отзыв или пожелание</h2>
 

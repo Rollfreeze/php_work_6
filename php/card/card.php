@@ -4,11 +4,12 @@ require_once 'php/card/message.php';
 require_once 'php/card/user.php';
 
 
-function card($id, $date, $score, $station, $message, $name) {
+function card($id, $date, $score, $station, $message, $name, $form_sort_type) {
     echo <<<CARD_OPEN
         <div class="card-body">
 
         <form name="delete_form" method="post">
+            <input type="hidden" name="form_sort_type" id="form_sort_type" value="$form_sort_type">
             <button class="delete_button"><i class="fa fa-close"></i></button>
             <div class="secret-box">
                 <input type="hidden" name="card_id_field" id="card_id" value="$id">
@@ -23,6 +24,7 @@ function card($id, $date, $score, $station, $message, $name) {
         </form>
 
         <form name="edit_form" method="get" action="edit_item.php">
+            <input type="hidden" name="form_sort_type" id="form_sort_type" value="$form_sort_type">
             <button class="edit_button"><i class="fa fa-folder"></i></button>
             <div class="secret-box">
                 <input type="hidden" name="card_id_field" id="card_id" value="$id">

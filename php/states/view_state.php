@@ -1,9 +1,19 @@
 <?php
+
+
+    $form_sort_type = "no_sort";
+    if (isset($_REQUEST['form_sort_type'])) {
+        $form_sort_type = $_REQUEST['form_sort_type'];
+        var_dump($_REQUEST['form_sort_type']);
+        var_dump($form_sort_type);
+    }
+
     echo <<<VIEW_STATE
         <div class="flex-row">
             <h2 class="h2 p20-top-bot">Отзывы о шиномонтаже Pit-Stop</h2>
             
-            <form name="add_item_form" method="post" action="add_item.php">
+            <form name="add_item_form" method="get" action="add_item.php">
+                <input type="hidden" name="form_sort_type" id="form_sort_type" value=$form_sort_type>
                 <button class="make_feed_back_button"><i class="fa fa-bars"></i><p class="left_feed">Оставить отзыв</p></button>
             </form>
         </div>
@@ -12,7 +22,7 @@
 VIEW_STATE;
 
     $db_result;
-    switch ($_GET['form_sort_type']) {
+    switch ($form_sort_type) {
         case "score_increase": {
             $db_result = db_sort_score_asc();
             break;
@@ -35,10 +45,6 @@ VIEW_STATE;
         };
     }
 
-
-    // $db_result = db_get_all();
-
-
     if (mysqli_num_rows($db_result) == 0) {
         require_once 'php/card/empty.php';
     } else {
@@ -48,6 +54,6 @@ VIEW_STATE;
         require_once 'php/sort_buttons/sort_by_date_asc.php';
 
         $rows = mysqli_fetch_all($db_result, MYSQLI_ASSOC);
-        foreach ($rows as $row) card($row['id'], $row['feed_back_date'], $row['evaluation'], $row['service_station'], $row['message'], $row['user_name']);
+        foreach ($rows as $row) card($row['id'], $row['feed_back_date'], $row['evaluation'], $row['service_station'], $row['message'], $row['user_name'], $form_sort_type);
     }
 ?>
